@@ -10,13 +10,11 @@ export class UserController {
 
   @MessagePattern({ command: CommandsUsuario.GET_USUARIO_LOGIN })
   async getUserLogin(user: string): Promise<User | null> {
-    console.log('chegou no user: ', user);
     return await this.userService.getUserLogin(user);
   }
 
   @MessagePattern({ command: CommandsUsuario.USER_CREATE })
   async createUser(user: { email: string; name: string; password: string }) {
-    console.log('aqui no create: ', user);
     return await this.userService.createUser(user);
   }
 }
